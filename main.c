@@ -40,5 +40,6 @@ int main(void)
 
 	_printf("%b\n", 98);
 	_printf("%K\n");
+	_printf("%!\n");
 	return (0);
 }
