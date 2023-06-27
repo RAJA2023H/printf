@@ -23,26 +23,26 @@ int _printf(const char *format, ...)
 			i++;
 			continue;
 		}
-		if (format[i] == '%')
+	if (format[i] == '%')
+	{
+		f = get_specifier(&format[i + 1]);
+		if (f != NULL) /* once specifier is found  */
 		{
-			f = get_specifier(&format[i + 1]);
-			if (f != NULL) /* once specifier is found  */
-			{
-				nchar += f(my_list);
-				i += 2;
-				continue;
-			}
+			nchar += f(my_list);
+			i += 2;
+			continue;
 		}
+
 		if (format[i + 1] == '\0') /* when reaching end of string */
 			return (-1);
 		if (format[i + 1] != '\0') /* print a character after % */
 		{
-			nchar += write(1, &format[i + 1], 1);
+			nchar += write(1, &format[i], 2);
 			i += 2;
 			continue;
 		}
 	}
+	}
 	va_end(my_list);
 	return (nchar);
 }
-
