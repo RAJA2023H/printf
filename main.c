@@ -39,5 +39,6 @@ int main(void)
 	_printf("Unknown:[%r]\n");
 
 	_printf("%b\n", 98);
+	_printf("%K\n");
 	return (0);
 }
